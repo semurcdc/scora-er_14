@@ -1,0 +1,19 @@
+<library path="src">
+  <class name="rqt_scora" type="rqt_scora.scora_gui.RqtScora" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      rqt_scora provides a GUI plugin for the control of the robotic arm scora-er 14.
+    </description>
+    <qtgui>
+      <!--
+      <group>
+        <label>Robot Tools</label>
+        <icon type="theme">folder</icon>
+        <statustip>Plugins related to robot tools.</statustip>
+      </group>
+      -->
+      <label>Scora-er 14</label>
+      <icon type="theme">input-gaming</icon>
+      <statustip>Great user interface to provide real value.</statustip>
+    </qtgui>
+  </class>
+</library>

@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="images">
+    <file>play.png</file>
+    <file>stop.png</file>
+    <file>pause.png</file>
+    <file>jderobot.png</file>
+    <file>scora.png</file>
+    <file>logo_uao.png</file>
+  </qresource>
+</RCC>
