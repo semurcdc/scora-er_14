@@ -1,0 +1,611 @@
+<robot name="scora_ind">
+  <link name="world"/>
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.020022 -0.14084 0.30367"
+        rpy="0 0 0" />
+      <mass
+        value="10.627" />
+      <inertia
+        ixx="0.62518"
+        ixy="-3.1226E-05"
+        ixz="0.038833"
+        iyy="0.63836"
+        iyz="8.6911E-05"
+        izz="0.038067" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  <link name="link_1">
+    <inertial>
+      <origin
+        xyz="0.12615 -3.3307E-16 -0.073533"
+        rpy="0 0 0" />
+      <mass
+        value="9.9747" />
+      <inertia
+        ixx="0.035087"
+        ixy="3.4338E-16"
+        ixz="-0.0077194"
+        iyy="0.15551"
+        iyz="2.2443E-17"
+        izz="0.15043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link_1_to_base_link" type="revolute">
+    <origin
+      xyz="-0.035098 -0.14087 0.733"
+      rpy="0 0 3.1354" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.125"
+      upper="2.125"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="link_2">
+    <inertial>
+      <origin
+        xyz="0.115 4.4409E-16 -0.21"
+        rpy="0 0 0" />
+      <mass
+        value="7.9815" />
+      <inertia
+        ixx="0.023223"
+        ixy="-1.6878E-16"
+        ixz="-1.2692E-22"
+        iyy="0.089988"
+        iyz="3.6814E-19"
+        izz="0.09073" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="white">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link_2_to_link_1" type="revolute">
+    <origin
+      xyz="0.27 0 0"
+      rpy="0 0 -0.010618" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="link_3">
+    <inertial>
+      <origin
+        xyz="-7.3346E-06 4.2003E-06 0.15052"
+        rpy="0 0 0" />
+      <mass
+        value="1.5933" />
+      <inertia
+        ixx="0.034764"
+        ixy="-2.84E-07"
+        ixz="-3.1022E-06"
+        iyy="0.034763"
+        iyz="-3.3604E-06"
+        izz="0.00078745" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link_3_to_link_2" type="prismatic">
+    <origin
+      xyz="0.23 0 -0.275"
+      rpy="0 0 0.01683" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.12"
+      upper="0"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="link_4">
+    <inertial>
+      <origin
+        xyz="3.5527E-15 -0.078733 -3.3537E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.45456" />
+      <inertia
+        ixx="0.00057292"
+        ixy="-5.7585E-19"
+        ixz="1.4121E-18"
+        iyy="0.00055966"
+        iyz="-4.3855E-09"
+        izz="0.00060863" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_5.STL" />
+      </geometry>
+      <material name="plateado">
+        <color rgba="0.753 0.753 0.753 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link_4_to_link_3" type="revolute">
+    <origin
+      xyz="0 0 -0.10799"
+      rpy="1.5708 0 0.26415" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="10"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="gripper_left">
+    <inertial>
+      <origin
+        xyz="-0.0079242 -0.012378 -2.3708E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.046306" />
+      <inertia
+        ixx="4.3367E-05"
+        ixy="8.8996E-07"
+        ixz="7.9718E-11"
+        iyy="3.9069E-05"
+        iyz="-1.1777E-10"
+        izz="6.6885E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
+      </geometry>
+      <material
+        name="plateado">
+        <color
+          rgba="0.753 0.753 0.753 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_left_to_link_4" type="prismatic">
+    <origin
+      xyz="-0.029935 -0.11 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_4" />
+    <child
+      link="gripper_left" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.027"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="gripper_right">
+    <inertial>
+      <origin
+        xyz="-0.017703 -0.012378 -2.3708E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.046306" />
+      <inertia
+        ixx="4.3367E-05"
+        ixy="8.8996E-07"
+        ixz="7.9718E-11"
+        iyy="3.9069E-05"
+        iyz="-1.1777E-10"
+        izz="6.6885E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
+      </geometry>
+      <material
+        name="plateado">
+        <color
+          rgba="0.753 0.753 0.753 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_right_to_link_4" type="prismatic">
+    <origin
+      xyz="0.020065 -0.11 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link_4" />
+    <child
+      link="gripper_right" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.027"
+      effort="1000"
+      velocity="0.5" />
+  </joint>
+  <link name="link2_top">
+    <inertial>
+      <origin
+        xyz="0.08 0.13708 4.4409E-16"
+        rpy="0 0 0" />
+      <mass
+        value="3.9231" />
+      <inertia
+        ixx="0.028533"
+        ixy="2.1205E-19"
+        ixz="6.2071E-18"
+        iyy="0.0081453"
+        iyz="7.0666E-19"
+        izz="0.032806" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2_top.STL" />
+      </geometry>
+      <material
+        name="blue">
+        <color
+          rgba="0 0 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link2_top_to_link_2" type="fixed">
+    <origin
+      xyz="0.115 0 -0.145"
+      rpy="1.5708 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link2_top" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="link2_bottom">
+    <inertial>
+      <origin
+        xyz="-0.006445 -0.018805 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.9512" />
+      <inertia
+        ixx="0.0033196"
+        ixy="-0.00080596"
+        ixz="3.3244E-17"
+        iyy="0.022699"
+        iyz="1.8923E-18"
+        izz="0.020092" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2_bottom.STL" />
+      </geometry>
+      <material
+        name="blue">
+        <color
+          rgba="0 0 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2_bottom.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link2_bottom_to_link_2" type="fixed">
+    <origin
+      xyz="0.115 0 -0.275"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="link_2" />
+    <child
+      link="link2_bottom" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="link_top">
+    <inertial>
+      <origin
+        xyz="-0.0075332 -0.00297 1.1102E-16"
+        rpy="0 0 0" />
+      <mass
+        value="2.4093" />
+      <inertia
+        ixx="0.0044802"
+        ixy="-0.0015436"
+        ixz="-1.1295E-16"
+        iyy="0.037989"
+        iyz="-5.6802E-18"
+        izz="0.03515" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
+      </geometry>
+      <material
+        name="blue">
+        <color
+          rgba="0 0 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="link_top_to_link_1" type="fixed">
+    <origin
+      xyz="0.135 0 0.032"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_top" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link name="Light_alarm">
+    <inertial>
+      <origin
+        xyz="3.5527E-15 0.011588 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.072255" />
+      <inertia
+        ixx="1.6827E-05"
+        ixy="1.344E-38"
+        ixz="-8.3898E-38"
+        iyy="2.5295E-05"
+        iyz="-1.5472E-22"
+        izz="1.6827E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
+      </geometry>
+      <material
+        name="red">
+        <color
+          rgba="0.8 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Light_alarm_to_link_top" type="fixed">
+    <origin
+      xyz="0.135 0.04 0"
+      rpy="0 0.0062122 0" />
+    <parent
+      link="link_top" />
+    <child
+      link="Light_alarm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_1">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_2">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <gazebo reference="link_3">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="link_4">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="link_top">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link2_bottom">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="link2_top">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="Light_alarm">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="gripper_right">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="gripper_left">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+</robot>
