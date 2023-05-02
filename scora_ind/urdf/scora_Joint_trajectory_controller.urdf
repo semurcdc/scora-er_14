@@ -21,7 +21,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1" />
@@ -33,7 +33,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -62,7 +62,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
       </geometry>
       <material
         name="white">
@@ -74,7 +74,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_1.STL" />
       </geometry>
     </collision>
   </link>
@@ -115,7 +115,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
       </geometry>
       <material
         name="white">
@@ -127,7 +127,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_2.STL" />
       </geometry>
     </collision>
   </link>
@@ -168,7 +168,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
       </geometry>
       <material name="black">
         <color rgba="0 0 0 1" />
@@ -180,7 +180,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_3.STL" />
       </geometry>
     </collision>
   </link>
@@ -221,7 +221,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_4.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_4.STL" />
       </geometry>
       <material name="plateado">
         <color rgba="0.753 0.753 0.753 1" />
@@ -233,7 +233,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_4.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_4.STL" />
       </geometry>
     </collision>
   </link>
@@ -274,7 +274,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
       </geometry>
       <material
         name="plateado">
@@ -288,7 +288,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_left.STL" />
       </geometry>
     </collision>
   </link>
@@ -329,7 +329,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
       </geometry>
       <material
         name="plateado">
@@ -343,7 +343,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/gripper_right.STL" />
       </geometry>
     </collision>
   </link>
@@ -384,7 +384,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_top.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_top.STL" />
       </geometry>
       <material
         name="blue">
@@ -398,7 +398,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_top.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_top.STL" />
       </geometry>
     </collision>
   </link>
@@ -434,7 +434,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_bottom.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_bottom.STL" />
       </geometry>
       <material name="blue">
       </material>
@@ -445,7 +445,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_bottom.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link2_bottom.STL" />
       </geometry>
     </collision>
   </link>
@@ -481,7 +481,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
       </geometry>
       <material
         name="blue">
@@ -493,7 +493,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/link_top.STL" />
       </geometry>
     </collision>
   </link>
@@ -529,7 +529,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
       </geometry>
       <material
         name="red">
@@ -543,7 +543,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="/home/smr/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
+          filename="/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/meshes/Light_alarm.STL" />
       </geometry>
     </collision>
   </link>
@@ -657,7 +657,7 @@
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
       <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
-      <parameters>/home/smr/ros2_ws/src/scora-er_14/scora_ind/config/joint_trajectory_p_controller.yaml</parameters>
+      <parameters>/home/celdamanufactura/ros2_ws/src/scora-er_14/scora_ind/config/joint_trajectory_p_controller.yaml</parameters>
     </plugin>
   </gazebo>
 

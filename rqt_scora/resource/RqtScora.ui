@@ -1,488 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>semurcdc</author>
  <class>ScoraGUI</class>
  <widget class="QWidget" name="ScoraGUI">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>684</width>
-    <height>535</height>
+    <width>1039</width>
+    <height>694</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Scora GUI</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>240</y>
-     <width>141</width>
-     <height>257</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>20</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="planButton">
-      <property name="text">
-       <string>Plan</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="executeButton">
-      <property name="text">
-       <string>Execute</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="planexeButton">
-      <property name="text">
-       <string>Plan &amp;&amp; Execute</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="stopexeButton">
-      <property name="text">
-       <string>Stop</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="homeButton">
-      <property name="text">
-       <string>Back to home</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>190</y>
-     <width>291</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="label_8">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Forward Kinematics</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="updatefkButton">
-      <property name="maximumSize">
-       <size>
-        <width>100</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Update</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_16">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>60</y>
-     <width>111</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="resources.qrc">:/images/logo_uao.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>230</y>
-     <width>291</width>
-     <height>191</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <property name="spacing">
-     <number>8</number>
-    </property>
-    <item row="0" column="3" rowspan="2">
-     <widget class="QTextBrowser" name="current_j1_label">
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1" colspan="2">
-     <widget class="QSlider" name="j4_slider">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0" rowspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Joint4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" rowspan="2">
-     <widget class="QLabel" name="label_3">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Joint3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1" colspan="2">
-     <widget class="QSlider" name="j1_slider">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3" rowspan="2">
-     <widget class="QTextBrowser" name="current_j2_label">
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" rowspan="2">
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Joint2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="3" rowspan="2">
-     <widget class="QTextBrowser" name="current_j4_label">
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1" colspan="2">
-     <widget class="QSlider" name="j3_slider">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1" colspan="2">
-     <widget class="QSlider" name="j2_slider">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="2">
-     <widget class="QLabel" name="label">
-      <property name="maximumSize">
-       <size>
-        <width>50</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Joint1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3" rowspan="2">
-     <widget class="QTextBrowser" name="current_j3_label">
-      <property name="maximumSize">
-       <size>
-        <width>70</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>365</x>
-     <y>191</y>
-     <width>304</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <property name="spacing">
-     <number>50</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="label_9">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Inverse Kinematics</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="updateikButton">
-      <property name="text">
-       <string>Update</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>335</x>
-     <y>231</y>
-     <width>191</width>
-     <height>291</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout_2">
-    <property name="verticalSpacing">
-     <number>20</number>
-    </property>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_10">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>x</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="xEdit"/>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_17">
-      <property name="text">
-       <string>m</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_11">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>y</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="yEdit"/>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="label_18">
-      <property name="text">
-       <string>m</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_12">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>z</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="zEdit"/>
-    </item>
-    <item row="2" column="2">
-     <widget class="QLabel" name="label_19">
-      <property name="text">
-       <string>m</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_13">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>roll</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="rollEdit"/>
-    </item>
-    <item row="3" column="2">
-     <widget class="QLabel" name="label_20">
-      <property name="text">
-       <string>°</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_14">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>pitch</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="pitchEdit"/>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="label_21">
-      <property name="text">
-       <string>°</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_15">
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>yaw</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="yawEdit"/>
-    </item>
-    <item row="5" column="2">
-     <widget class="QLabel" name="label_22">
-      <property name="text">
-       <string>°</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>170</y>
-     <width>891</width>
-     <height>26</height>
+     <y>40</y>
+     <width>1221</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -497,89 +35,10 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="Line" name="line_2">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>190</y>
-     <width>20</width>
-     <height>361</height>
-    </rect>
-   </property>
-   <property name="lineWidth">
-    <number>2</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>430</y>
-     <width>61</width>
-     <height>38</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Gripper</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="GraspButton">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>440</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Grasp</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ReleaseButton">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>440</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Release</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_23">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>20</y>
-     <width>171</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="resources.qrc">:/images/scora.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>340</x>
      <y>0</y>
      <width>331</width>
      <height>61</height>
@@ -593,6 +52,2804 @@
    <property name="text">
     <string>SCORA-ER 14 ROBOT ARM</string>
    </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>1041</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::North</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideNone</enum>
+   </property>
+   <property name="documentMode">
+    <bool>false</bool>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Control</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_6">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>140</y>
+       <width>541</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Crear rutina</string>
+     </property>
+     <widget class="QTableWidget" name="tablapos">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>501</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>Servo 1</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Servo 2</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Servo 3</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Servo 4</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Gripper</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="DeletePosBtn">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>30</y>
+        <width>171</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Eliminar posicion</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="SavePosBtn">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>171</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Guardar posicion</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="SaveTrayBtn">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>200</y>
+        <width>141</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Guardar rutina</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="UpTrayBtn">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>200</y>
+        <width>141</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cargar rutina</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="NameFileTextEdit">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>210</y>
+        <width>101</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelNameFile">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nombre del archivo:</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="DeleteRutineButton">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>240</y>
+        <width>141</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Eliminar rutina</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>420</y>
+       <width>541</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Ejecutar rutina</string>
+     </property>
+     <widget class="QPushButton" name="ExecutePathButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ejecutar rutina</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Repeat">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Repeticion:</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBoxRepeat">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>60</y>
+        <width>61</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelNameFile_4">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>30</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consola de resultados</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="ShowText">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>60</y>
+        <width>256</width>
+        <height>71</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>431</width>
+       <height>501</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Teleoperacion</string>
+     </property>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>381</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Articulacion 3 (Servo 3) - Rotacional</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="statusj3">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>91</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Moviendose</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="posencoder3">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>30</y>
+         <width>61</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion actual:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion deseada:</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="j3_slider">
+       <property name="geometry">
+        <rect>
+         <x>31</x>
+         <y>50</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="increase_j3_push_button">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Decrease angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="decrease_j3_push_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Increase angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&lt;</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="current_j3_label">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="undoRedoEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="tabStopDistance">
+        <double>79.000000000000000</double>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditorInteraction</set>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>381</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Articulacion 1 (Servo 1) - Rotacional</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="statusj1">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Apagado</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="posencoder1">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>30</y>
+         <width>61</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion actual:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion deseada:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="increase_j1_push_button">
+       <property name="geometry">
+        <rect>
+         <x>151</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Decrease angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="decrease_j1_push_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Increase angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&lt;</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="j1_slider">
+       <property name="geometry">
+        <rect>
+         <x>31</x>
+         <y>50</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="current_j1_label">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="undoRedoEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="tabStopDistance">
+        <double>79.000000000000000</double>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditorInteraction</set>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>381</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Articulacion 2 (Servo 2) - Rotacional</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="statusj2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Encendido</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="posencoder2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>30</y>
+         <width>61</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion actual:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion deseada:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="increase_j2_push_button">
+       <property name="geometry">
+        <rect>
+         <x>151</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Decrease angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="decrease_j2_push_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Increase angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&lt;</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="j2_slider">
+       <property name="geometry">
+        <rect>
+         <x>31</x>
+         <y>50</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="current_j2_label">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="undoRedoEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="tabStopDistance">
+        <double>79.000000000000000</double>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditorInteraction</set>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>320</y>
+        <width>381</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Articulacion 4 (Servo 4) - Prismatica</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="statusj4">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Alarma</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="posencoder4">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>30</y>
+         <width>61</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>true</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion actual:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_27">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion deseada:</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="j4_slider">
+       <property name="geometry">
+        <rect>
+         <x>31</x>
+         <y>50</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="decrease_j4_push_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Increase angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&lt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="increase_j4_push_button">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>50</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Decrease angular velocity</string>
+       </property>
+       <property name="text">
+        <string>&gt;</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="current_j4_label">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>50</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="undoRedoEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="tabStopDistance">
+        <double>79.000000000000000</double>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditorInteraction</set>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>381</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Articulacion 5 (Gripper) - Prismatica</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QLabel" name="statusj5">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>30</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cerrado</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_33">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>61</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Estado:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ReleaseButton">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>30</y>
+         <width>89</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Abrir</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="GraspButton">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>30</y>
+         <width>89</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Cerrar</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="homeButton">
+     <property name="geometry">
+      <rect>
+       <x>860</x>
+       <y>100</y>
+       <width>161</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Posicion inicial</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="OnButton">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>100</y>
+       <width>171</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Encender servomotores</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="OffButton">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>100</y>
+       <width>171</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Apagar servomotores</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_9">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>20</y>
+       <width>541</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Conexion plc</string>
+     </property>
+     <widget class="QLabel" name="ShowText1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>30</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Desconectado</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="disconnectbtn">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>30</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Desconectar </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelNameFile_2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>30</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Estado:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Connectbtn">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>30</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Conectar</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <attribute name="title">
+     <string>Configuracion</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_10">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>120</y>
+       <width>441</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Articulacion 1 (Servo 1) - Rotacional</string>
+     </property>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad actual: </string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="AcelActualJ1">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion actual:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ChgParamJ1">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cambiar parametros</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>40</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Alarma:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClcAlarmJ1">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>130</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Limpiar alarma</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber1">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+      <property name="segmentStyle">
+       <enum>QLCDNumber::Filled</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ConsAlarmJ1">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>90</y>
+        <width>121</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consultar alarma</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="VelActualJ1">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="VelJ1Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>100</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="AcelJ1Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_14">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>20</y>
+       <width>951</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Configuraciones globales</string>
+     </property>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_44">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>40</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion deseada:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClcAlarmGeneral">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>40</y>
+        <width>121</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Limpiar alarmas</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ChgValGeneral">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>40</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cambiar parametros</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="VelGeneralValue">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="AcelGeneralValue">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_11">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>120</y>
+       <width>441</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Articulacion 2 (Servo 2) - Rotacional</string>
+     </property>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad actual: </string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="VelActualJ2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="AcelActualJ2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion actual:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ChgParamJ2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cambiar parametros</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>40</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Alarma:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClcAlarmJ2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>130</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Limpiar alarma</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber2">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ConsAlarmJ2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>90</y>
+        <width>121</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consultar alarma</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="VelJ2Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>100</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="AcelJ2Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_12">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>340</y>
+       <width>441</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Articulacion 3 (Servo 3) - Rotacional</string>
+     </property>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad actual: </string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="VelActualJ3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="AcelActualJ3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion actual:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ChgParamJ3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cambiar parametros</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_35">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>40</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Alarma:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClcAlarmJ3">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>130</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Limpiar alarma</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber3">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ConsAlarmJ3">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>90</y>
+        <width>121</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consultar alarma</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="VelJ3Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>100</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="AcelJ3Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_13">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>340</y>
+       <width>441</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Articulacion 4 (Servo 4) - Prismatica</string>
+     </property>
+     <widget class="QLabel" name="label_36">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad deseada:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Velocidad actual: </string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="VelActualJ4">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="AcelActualJ4">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>81</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Aceleraccion actual:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ChgParamJ4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cambiar parametros</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>40</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Alarma:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ClcAlarmJ4">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>130</y>
+        <width>111</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Limpiar alarma</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber4">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ConsAlarmJ4">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>90</y>
+        <width>121</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Consultar alarma</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="VelJ4Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>100</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="AcelJ4Value">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="undoRedoEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="tabStopDistance">
+       <double>79.000000000000000</double>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextEditorInteraction</set>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources>

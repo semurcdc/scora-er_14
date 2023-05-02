@@ -16,10 +16,10 @@ def generate_launch_description():
          Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
-            name='robot_state_publisher',
             output='screen',
             parameters=[{'robot_description': robot_desc}],
-            arguments=[urdf]),
+            arguments=[urdf]
+        ),
 
 #  Gazebo related stuff required to launch the robot in simulation
         ExecuteProcess(
@@ -28,15 +28,13 @@ def generate_launch_description():
         Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
-            name='urdf_spawner',
             output='screen',
-            arguments=["-topic", "/robot_description", "-entity", "scora_ind"]),
+            arguments=["-topic", "robot_description", "-entity", "scora_ind"]),
 #   Running the controllers in launch file
         ExecuteProcess(
             cmd=['ros2', 'control', 'load_controller', '--set-state', 'start','joint_state_broadcaster'],
             output='screen'
         ),
-
         ExecuteProcess(
             cmd=['ros2', 'control', 'load_controller', '--set-state', 'start', 'joint_trajectory_controller'],
             output='screen'

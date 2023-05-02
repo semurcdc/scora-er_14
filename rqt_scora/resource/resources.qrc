@@ -1,6 +1,13 @@
 <RCC>
   <qresource prefix="images">
     <file>play.png</file>
+    <file>servo1.png</file>
+    <file>servo1_pq.png</file>
+    <file>servo2.png</file>
+    <file>servo3.png</file>
+    <file>servo4.png</file>
+    <file>gripper.png</file>
+    <file>draw.png</file>
     <file>stop.png</file>
     <file>pause.png</file>
     <file>jderobot.png</file>

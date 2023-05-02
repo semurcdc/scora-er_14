@@ -12,8 +12,7 @@ setup(
         ('share/' + package_name + '/resource', ['resource/RqtScora.ui']),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name, ['plugin.xml']),
-        ('lib/' + package_name, ['scripts/rqt_scora']),
-        ('lib/' + package_name, ['scripts/read'])
+        ('lib/' + package_name, ['scripts/rqt_scora'])
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -31,5 +30,11 @@ setup(
         'rqt_scora provides a GUI plugin for the control of the robotic arm scora-er 14'
     ),
     license='BSD',
-    scripts=['scripts/rqt_scora','scripts/read'],
+    scripts=['scripts/rqt_scora'],
+    entry_points={
+        'console_scripts': [
+                'img_subscriber=cv_basics.webcam_sub:main',
+                'img_Segmentacion=cv_basics.Segmentacion:main',
+        ],
+    },
 )

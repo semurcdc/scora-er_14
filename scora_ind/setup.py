@@ -28,6 +28,7 @@ setup(
             'trajectory_forward = scora_ind.trajectory_forward:main',
             'trajectory_inverse = scora_ind.trajectory_inverse:main',
             'teleop_key = scora_ind.teleop_key:main',
+            'suscriptor = scora_ind.suscriptor:main',
         ],
     },
 )
