@@ -12,6 +12,8 @@
     <file>pause.png</file>
     <file>jderobot.png</file>
     <file>scora.png</file>
-    <file>logo_uao.png</file>
+    <file>logo_uao.svg</file>
+    <file>switch-off.png</file>
+    <file>switch-on.png</file>
   </qresource>
 </RCC>

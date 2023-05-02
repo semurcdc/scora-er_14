@@ -2,7 +2,8 @@ import os
 import csv
 from ament_index_python import get_resource
 from python_qt_binding import loadUi
-from python_qt_binding.QtCore import QTimer, QThread, QCoreApplication, pyqtSignal
+from python_qt_binding.QtGui import QIcon, QPixmap
+from python_qt_binding.QtCore import QTimer, QThread, QCoreApplication, pyqtSignal, QSize, QResource
 from python_qt_binding.QtWidgets import QWidget, QLCDNumber, QTableWidget, QTableWidgetItem, QApplication
 from rclpy.qos import QoSProfile
 from rqt_gui_py.plugin import Plugin
@@ -45,12 +46,6 @@ class RqtScora(Plugin):
         self._widget.j1_slider.valueChanged.connect(self._on_j1_slider_changed)
         self._widget.j1_slider.setMaximum(7500)
         self._widget.j1_slider.setMinimum(0)
-        # Push button increase joint 1
-        self._widget.increase_j1_push_button.pressed.connect(
-            self._on_strong_increase_j1_pressed)
-        # Push button decrease joint 1
-        self._widget.decrease_j1_push_button.pressed.connect(
-            self._on_strong_decrease_j1_pressed)
 
         # Slider joint 2
         self._widget.j2_slider.valueChanged.connect(self._on_j2_slider_changed)
@@ -127,6 +122,14 @@ class RqtScora(Plugin):
 
         self._widget.ClcAlarmJ4.pressed.connect(self._clear_alarm_j4)
 
+        self._widget.SwitchOnJ1.pressed.connect(self._on_servo_j1)
+
+        self._widget.SwitchOnJ2.pressed.connect(self._on_servo_j2)
+        
+        self._widget.SwitchOnJ3.pressed.connect(self._on_servo_j3)
+
+        self._widget.SwitchOnJ4.pressed.connect(self._on_servo_j4)
+
 
         self._update_parameter_timer = QTimer(self)
         self._update_parameter_timer.start(100)
@@ -138,6 +141,50 @@ class RqtScora(Plugin):
 
         self.username = os.path.expanduser("~")
         self.lista_arq = ''
+
+        targetuao = "logo_uao.svg"
+        targetswitchoff = "switch-off.png"
+        targetswitchon = "switch-on.png"
+        initial_dir = self.username+'/ros2_ws/src'
+
+        path_file_logouao = ''
+        for root, _, files in os.walk(initial_dir):
+            if targetuao in files:
+               path_file_logouao = os.path.join(root, targetuao)
+               break
+        #To search for the username
+        imguao = QPixmap(path_file_logouao)
+        self._widget.LabelImageUao.setPixmap(imguao)
+
+        path_file_logoswitchoff = ''
+        for root, _, files in os.walk(initial_dir):
+            if targetswitchoff in files:
+               path_file_logoswitchoff = os.path.join(root, targetswitchoff)
+               break
+        #To search for the username
+        imgoff = QPixmap(path_file_logoswitchoff)
+        self.iconOff = QIcon(imgoff)
+        self._widget.SwitchOnJ1.setIcon(self.iconOff)
+        self._widget.SwitchOnJ2.setIcon(self.iconOff)
+        self._widget.SwitchOnJ3.setIcon(self.iconOff)
+        self._widget.SwitchOnJ4.setIcon(self.iconOff)
+
+        path_file_logoswitchon = ''
+        for root, _, files in os.walk(initial_dir):
+            if targetswitchon in files:
+               path_file_logoswitchon = os.path.join(root, targetswitchon)
+               break
+        #To search for the username
+        imgon = QPixmap(path_file_logoswitchon)
+        self.iconOn = QIcon(imgon)
+
+        self.enableJ1 = True
+        self.enableJ2 = True
+        self.enableJ3 = True
+        self.enableJ4 = True
+        
+
+
 
         if os.path.exists(self.username+"/trajectories_scora"):
             for i in os.listdir(self.username+"/trajectories_scora"):
@@ -224,8 +271,122 @@ class RqtScora(Plugin):
             self._widget.statusj2.setText("Encendido")
             self._widget.statusj3.setText("Encendido")
             self._widget.statusj4.setText("Encendido")
+            self._widget.SwitchOnJ1.setIcon(self.iconOn)
+            self._widget.SwitchOnJ2.setIcon(self.iconOn)
+            self._widget.SwitchOnJ3.setIcon(self.iconOn)
+            self._widget.SwitchOnJ4.setIcon(self.iconOn)
+            self.enableJ1 = True
+            self.enableJ2 = True
+            self.enableJ3 = True
+            self.enableJ4 = True
         except OSError as e:
             print("No estas conectado")
+
+    def _on_servo_j1(self):
+        if self.enableJ1:
+            command = 41
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj1.setText("Encendido")
+                self.enableJ1 = False
+                self._widget.SwitchOnJ1.setIcon(self.iconOn)
+            except OSError as e:
+                print("No estas conectado")
+        else:
+            command = 42
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj1.setText("Apagado")
+                self.enableJ1 = True
+                self._widget.SwitchOnJ1.setIcon(self.iconOff)
+            except OSError as e:
+                print("No estas conectado")
+
+    def _on_servo_j2(self):
+        if self.enableJ2:
+            command = 45
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj2.setText("Encendido")
+                self.enableJ2 = False
+                self._widget.SwitchOnJ2.setIcon(self.iconOn)
+            except OSError as e:
+                print("No estas conectado")
+        else:
+            command = 46
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj2.setText("Apagado")
+                self.enableJ2 = True
+                self._widget.SwitchOnJ2.setIcon(self.iconOff)
+            except OSError as e:
+                print("No estas conectado")
+
+    def _on_servo_j3(self):
+        if self.enableJ3:
+            command = 49
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj3.setText("Encendido")
+                self.enableJ3 = False
+                self._widget.SwitchOnJ3.setIcon(self.iconOn)
+            except OSError as e:
+                print("No estas conectado")
+        else:
+            command = 50
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj3.setText("Apagado")
+                self.enableJ3 = True
+                self._widget.SwitchOnJ3.setIcon(self.iconOff)
+            except OSError as e:
+                print("No estas conectado")
+
+
+    def _on_servo_j4(self):
+        if self.enableJ4:
+            command = 53
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj4.setText("Encendido")
+                self.enableJ4 = False
+                self._widget.SwitchOnJ4.setIcon(self.iconOn)
+            except OSError as e:
+                print("No estas conectado")
+        else:
+            command = 54
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self._widget.statusj4.setText("Apagado")
+                self.enableJ4 = True
+                self._widget.SwitchOnJ4.setIcon(self.iconOff)
+            except OSError as e:
+                print("No estas conectado")
+
 
     def _off_servo(self):
         command = 7
@@ -238,6 +399,14 @@ class RqtScora(Plugin):
             self._widget.statusj2.setText("Apagado")
             self._widget.statusj3.setText("Apagado")
             self._widget.statusj4.setText("Apagado")
+            self.enableJ1 = True
+            self.enableJ2 = True
+            self.enableJ3 = True
+            self.enableJ4 = True
+            self._widget.SwitchOnJ1.setIcon(self.iconOff)
+            self._widget.SwitchOnJ2.setIcon(self.iconOff)
+            self._widget.SwitchOnJ3.setIcon(self.iconOff)
+            self._widget.SwitchOnJ4.setIcon(self.iconOff)
         except OSError as e:
             print("No estas conectado")
 
@@ -388,14 +557,6 @@ class RqtScora(Plugin):
         self._widget.current_j1_label.setText(
             '%0.2f' % (self._widget.j1_slider.value() / 100))
         self._on_parameter_changed()
-
-    def _on_strong_increase_j1_pressed(self):
-        self._widget.j1_slider.setValue(
-            self._widget.j1_slider.value() + self._widget.j1_slider.pageStep())
-
-    def _on_strong_decrease_j1_pressed(self):
-        self._widget.j1_slider.setValue(
-            self._widget.j1_slider.value() - self._widget.j1_slider.pageStep())
 
     def _on_j2_slider_changed(self):
         self._widget.current_j2_label.setText(

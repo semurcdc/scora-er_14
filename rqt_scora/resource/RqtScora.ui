@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1039</width>
-    <height>694</height>
+    <width>1161</width>
+    <height>804</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>40</y>
+     <y>50</y>
      <width>1221</width>
      <height>31</height>
     </rect>
@@ -57,9 +57,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>60</y>
-     <width>1041</width>
-     <height>621</height>
+     <y>70</y>
+     <width>1051</width>
+     <height>701</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -96,8 +96,8 @@
     <widget class="QGroupBox" name="groupBox_6">
      <property name="geometry">
       <rect>
-       <x>480</x>
-       <y>140</y>
+       <x>490</x>
+       <y>180</y>
        <width>541</width>
        <height>271</height>
       </rect>
@@ -250,8 +250,8 @@
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
-       <x>480</x>
-       <y>420</y>
+       <x>490</x>
+       <y>470</y>
        <width>541</width>
        <height>151</height>
       </rect>
@@ -324,8 +324,8 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>431</width>
-       <height>501</height>
+       <width>461</width>
+       <height>641</height>
       </rect>
      </property>
      <property name="title">
@@ -334,10 +334,10 @@
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>230</y>
+        <x>40</x>
+        <y>320</y>
         <width>381</width>
-        <height>81</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -563,14 +563,41 @@ p, li { white-space: pre-wrap; }
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="SwitchOnJ3">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>70</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/switch-off.png</normaloff>
+         <normalon>:/images/switch-off.png</normalon>:/images/switch-off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>50</y>
-        <width>381</width>
-        <height>81</height>
+        <x>40</x>
+        <y>30</y>
+        <width>401</width>
+        <height>121</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -594,7 +621,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="statusj1">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>280</x>
          <y>30</y>
          <width>71</width>
          <height>17</height>
@@ -607,7 +634,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>200</x>
          <y>30</y>
          <width>61</width>
          <height>17</height>
@@ -623,10 +650,10 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>30</y>
+         <x>330</x>
+         <y>60</y>
          <width>61</width>
-         <height>18</height>
+         <height>20</height>
         </rect>
        </property>
        <property name="font">
@@ -672,8 +699,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>30</y>
+         <x>200</x>
+         <y>60</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -682,89 +709,53 @@ p, li { white-space: pre-wrap; }
         <string>Posicion actual:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_8">
+      <widget class="QDial" name="j1_slider">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>50</y>
-         <width>121</width>
-         <height>17</height>
+         <x>0</x>
+         <y>30</y>
+         <width>91</width>
+         <height>81</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Posicion deseada:</string>
+       <property name="minimum">
+        <number>0</number>
        </property>
-      </widget>
-      <widget class="QPushButton" name="increase_j1_push_button">
-       <property name="geometry">
-        <rect>
-         <x>151</x>
-         <y>50</y>
-         <width>21</width>
-         <height>21</height>
-        </rect>
+       <property name="maximum">
+        <number>75000</number>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>30</width>
-         <height>16777215</height>
-        </size>
+       <property name="value">
+        <number>0</number>
        </property>
-       <property name="toolTip">
-        <string>Decrease angular velocity</string>
-       </property>
-       <property name="text">
-        <string>&gt;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="decrease_j1_push_button">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>21</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>30</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="toolTip">
-        <string>Increase angular velocity</string>
-       </property>
-       <property name="text">
-        <string>&lt;</string>
-       </property>
-      </widget>
-      <widget class="QSlider" name="j1_slider">
-       <property name="geometry">
-        <rect>
-         <x>31</x>
-         <y>50</y>
-         <width>121</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>20</height>
-        </size>
+       <property name="sliderPosition">
+        <number>0</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
+       </property>
+       <property name="invertedControls">
+        <bool>false</bool>
+       </property>
+       <property name="wrapping">
+        <bool>false</bool>
+       </property>
+       <property name="notchTarget">
+        <double>25.000000000000000</double>
+       </property>
+       <property name="notchesVisible">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QTextEdit" name="current_j1_label">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>50</y>
+         <x>330</x>
+         <y>90</y>
          <width>61</width>
-         <height>21</height>
+         <height>20</height>
         </rect>
        </property>
        <property name="verticalScrollBarPolicy">
@@ -796,14 +787,54 @@ p, li { white-space: pre-wrap; }
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>90</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Posicion deseada:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="SwitchOnJ1">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/switch-off.png</normaloff>
+         <normalon>:/images/switch-off.png</normalon>:/images/switch-off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>140</y>
+        <x>40</x>
+        <y>190</y>
         <width>381</width>
-        <height>81</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -931,8 +962,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="increase_j2_push_button">
        <property name="geometry">
         <rect>
-         <x>151</x>
-         <y>50</y>
+         <x>150</x>
+         <y>90</y>
          <width>21</width>
          <height>21</height>
         </rect>
@@ -953,8 +984,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="decrease_j2_push_button">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>50</y>
+         <x>9</x>
+         <y>90</y>
          <width>21</width>
          <height>21</height>
         </rect>
@@ -975,8 +1006,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QSlider" name="j2_slider">
        <property name="geometry">
         <rect>
-         <x>31</x>
-         <y>50</y>
+         <x>30</x>
+         <y>90</y>
          <width>121</width>
          <height>20</height>
         </rect>
@@ -1029,14 +1060,41 @@ p, li { white-space: pre-wrap; }
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="SwitchOnJ2">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>50</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/switch-off.png</normaloff>
+         <normalon>:/images/switch-off.png</normalon>:/images/switch-off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>320</y>
+        <x>40</x>
+        <y>440</y>
         <width>381</width>
-        <height>81</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1060,7 +1118,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="statusj4">
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>270</x>
          <y>30</y>
          <width>71</width>
          <height>17</height>
@@ -1073,7 +1131,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_25">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>190</x>
          <y>30</y>
          <width>61</width>
          <height>17</height>
@@ -1090,7 +1148,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>310</x>
-         <y>30</y>
+         <y>60</y>
          <width>61</width>
          <height>18</height>
         </rect>
@@ -1139,7 +1197,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>30</y>
+         <y>60</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -1152,7 +1210,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>50</y>
+         <y>80</y>
          <width>121</width>
          <height>17</height>
         </rect>
@@ -1165,7 +1223,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>31</x>
-         <y>50</y>
+         <y>80</y>
          <width>121</width>
          <height>20</height>
         </rect>
@@ -1184,7 +1242,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>80</y>
          <width>21</width>
          <height>21</height>
         </rect>
@@ -1206,7 +1264,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>150</x>
-         <y>50</y>
+         <y>80</y>
          <width>21</width>
          <height>21</height>
         </rect>
@@ -1228,7 +1286,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>310</x>
-         <y>50</y>
+         <y>80</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -1262,12 +1320,39 @@ p, li { white-space: pre-wrap; }
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="SwitchOnJ4">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>30</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/images/switch-off.png</normaloff>
+         <normalon>:/images/switch-off.png</normalon>:/images/switch-off.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>410</y>
+        <x>40</x>
+        <y>560</y>
         <width>381</width>
         <height>71</height>
        </rect>
@@ -1347,8 +1432,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="homeButton">
      <property name="geometry">
       <rect>
-       <x>860</x>
-       <y>100</y>
+       <x>870</x>
+       <y>120</y>
        <width>161</width>
        <height>25</height>
       </rect>
@@ -1360,8 +1445,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="OnButton">
      <property name="geometry">
       <rect>
-       <x>480</x>
-       <y>100</y>
+       <x>500</x>
+       <y>120</y>
        <width>171</width>
        <height>25</height>
       </rect>
@@ -1373,8 +1458,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="OffButton">
      <property name="geometry">
       <rect>
-       <x>670</x>
-       <y>100</y>
+       <x>680</x>
+       <y>120</y>
        <width>171</width>
        <height>25</height>
       </rect>
@@ -1386,8 +1471,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QGroupBox" name="groupBox_9">
      <property name="geometry">
       <rect>
-       <x>480</x>
-       <y>20</y>
+       <x>490</x>
+       <y>40</y>
        <width>541</width>
        <height>61</height>
       </rect>
@@ -2850,6 +2935,31 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
+  </widget>
+  <widget class="QLabel" name="LabelImageUao">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>0</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/images/logo_uao.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
+   <property name="openExternalLinks">
+    <bool>false</bool>
+   </property>
   </widget>
  </widget>
  <resources>
