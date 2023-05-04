@@ -16,7 +16,6 @@ import struct
 import signal
 import rclpy
 
-
 class RqtScora(Plugin):
     j5 = 0.0
 
@@ -252,10 +251,7 @@ class RqtScora(Plugin):
             self._widget.ShowText1.setText("Desconectado")
             self._widget.ShowText1.setStyleSheet("color: rgb();")
             self.updater = update(self.sock, self._widget)
-            self.updater.terminate()
-            self.updater.wait()
-            self.updater.quit()
-            self.updater.deleteLater()
+            self.updater.stop_timer1()
         except OSError as e:
             print("No estas conectado")
         self.sock.close()
@@ -360,7 +356,6 @@ class RqtScora(Plugin):
             except OSError as e:
                 print("No estas conectado")
 
-
     def _on_servo_j4(self):
         if self.enableJ4:
             command = 53
@@ -386,7 +381,6 @@ class RqtScora(Plugin):
                 self._widget.SwitchOnJ4.setIcon(self.iconOff)
             except OSError as e:
                 print("No estas conectado")
-
 
     def _off_servo(self):
         command = 7
@@ -492,34 +486,31 @@ class RqtScora(Plugin):
 
     def _execute_rutine(self):
         self._widget.ShowText.setText("Ejecutando rutina")
-        timeRepeat = self._widget.spinBoxRepeat.value()
-        if timeRepeat != 0:
-            for i in range(timeRepeat):
+        RutineRepeat = self._widget.spinBoxRepeat.value()
+        rows_data = []
+        i = 1
+        print(RutineRepeat)
+        if RutineRepeat > 1:
+            for i in range(RutineRepeat):
+                rows_data = []
                 for rows in range(self.row_count):
-                    rows_data = []
                     for columns in range(5):
-                        cell_value = self._widget.tablapos.item(
-                            rows, columns).text()
+                        cell_value = self._widget.tablapos.item(rows, columns).text()
                         rows_data.append(float(cell_value))
-                    self._send_trajectory(
-                        rows_data[0], rows_data[1], rows_data[2], rows_data[3], rows_data[4], rows_data[4])
-
-                self._widget.ShowText.setText(
-                    "Repeticion #"+str(i+1)+" completada")
-            self._widget.ShowText.setText("Rutina completada.")
-            self._widget.spinBoxRepeat.setValue(0)
+                self.updater = update(self.sock, self._widget)
+                self.updater.stop_timer1()
+                self.updater.start_timer_trayectory(rows_data)
+            self._widget.ShowText.setText("Repeticiones completadas.\nPuede volver a ejecutar la rutina.")
+            self._widget.spinBoxRepeat.setValue(1)
         else:
             for rows in range(self.row_count):
-                rows_data = []
                 for columns in range(5):
-                    cell_value = self._widget.tablapos.item(
-                        rows, columns).text()
+                    cell_value = self._widget.tablapos.item(rows, columns).text()
                     rows_data.append(float(cell_value))
-
-                self._send_trajectory(
-                    rows_data[0], rows_data[1], rows_data[2], rows_data[3], rows_data[4], rows_data[4])
-            self._widget.ShowText.setText(
-                "Rutina completada.\nPuede volver a ejecutar la rutina.")
+            self.updater = update(self.sock, self._widget)
+            self.updater.stop_timer1()
+            self.updater.start_timer_trayectory(rows_data)
+            self._widget.ShowText.setText("Rutina completada.\nPuede volver a ejecutar la rutina.")
         QTimer.singleShot(5000, self.mostrar_rutinas)
 
     def _act_param(self):
@@ -779,7 +770,6 @@ class RqtScora(Plugin):
         except OSError as e:
             print("No estas conectado")
 
-
 class Trajectory_publisher(Node):
     def __init__(self):
         super().__init__('trajectory_publsiher_node')
@@ -791,18 +781,137 @@ class Trajectory_publisher(Node):
         self.goal_positions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         self.velocities = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-
 class update(QThread):
     def __init__(self, sock, widget):
         super(update, self).__init__()
         self.sock = sock
         self.widget = widget
 
-    def start_timer(self):
         # Crear un QTimer para actualizar el label en intervalos regulares
         self.timer1 = QTimer()
         self.timer1.timeout.connect(self.update_lbl)
-        self.timer1.start(500)  # Actualizar cada 1000 ms (1 segundo)
+
+    def start_timer(self):
+        self.timer1.start(200)  # Actualizar cada 1000 ms (1 segundo)
+
+    def start_timer_trayectory(self, rows_data):
+        scora_trajectory = Trajectory_publisher()
+        rows_table=len(rows_data)/5
+        i=0
+        for rows in range(int(rows_table)):
+            self.finish_pose = False
+            self.value1 = int(rows_data[i])
+            self.value2 = int(rows_data[i+1])
+            self.value3 = int(rows_data[i+2])
+            self.value4 = int(rows_data[i+3])
+            i=i+5
+            hex_str1 = format(self.value1, 'x').zfill(4)
+            hex_str2 = format(self.value2, 'x').zfill(4)
+            hex_str3 = format(self.value3, 'x').zfill(4)
+            hex_str4 = format(self.value4, 'x').zfill(4)
+            command = 8
+            hex_str5 = format(command, 'x').zfill(2)
+            value = hex_str5+hex_str4+hex_str3+hex_str2+hex_str1
+            decimal_num = int(value, 16)
+            try:
+                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                print("Enviando a posicion " + str(rows) )
+                # Crear un QTimer para actualizar el label en intervalos regulares
+                #self.timer2 = QTimer()
+                #self.timer2.timeout.connect(self._send_trajectory_wait)
+                #self.timer2.start(200)  # Actualizar cada 1000 ms (1 segundo)
+                while self.finish_pose == False:
+                    command = 40
+                    hex_str5 = format(command, 'x').zfill(2)
+                    value = hex_str5+"0000"+"0000"+"0000"+"0000"
+                    decimal_num = int(value, 16)
+                    try:
+                        self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                        data = self.sock.recv(1024)
+                        fmt = ">f"
+                        VelocityJoint1 = round(struct.unpack(fmt, data[0:4])[0], 4)
+                        PositionJoint1 = round(struct.unpack(fmt, data[4:8])[0], 4)
+                        AccelerationJoint1 = round(struct.unpack(fmt, data[8:12])[0], 4)
+                        AlarmJoint1 = struct.unpack('h', data[12:14])[0]
+                        VelocityJoint2 = round(struct.unpack(fmt, data[14:18])[0], 4)
+                        PositionJoint2 = round(struct.unpack(fmt, data[18:22])[0], 4)
+                        AccelerationJoint2 = round(struct.unpack(fmt, data[22:26])[0], 4)
+                        AlarmJoint2 = struct.unpack('h', data[26:28])[0]
+                        VelocityJoint3 = round(struct.unpack(fmt, data[28:32])[0], 4)
+                        PositionJoint3 = round(struct.unpack(fmt, data[32:36])[0], 4)
+                        AccelerationJoint3 = round(struct.unpack(fmt, data[36:40])[0], 4)
+                        AlarmJoint3 = struct.unpack('h', data[40:42])[0]
+                        VelocityJoint4 = round(struct.unpack(fmt, data[42:46])[0], 4)
+                        PositionJoint4 = round(struct.unpack(fmt, data[46:50])[0], 4)
+                        AccelerationJoint4 = round(struct.unpack(fmt, data[50:54])[0], 4)
+                        AlarmJoint4 = struct.unpack('h', data[54:56])[0]
+                        self.widget.posencoder1.setText(str(PositionJoint1))
+                        self.widget.posencoder2.setText(str(PositionJoint2))
+                        self.widget.posencoder3.setText(str(PositionJoint3))
+                        self.widget.posencoder4.setText(str(PositionJoint4))
+                        self.widget.VelActualJ1.setText(str(VelocityJoint1))
+                        self.widget.AcelActualJ1.setText(str(AccelerationJoint1))
+                        self.widget.VelActualJ2.setText(str(VelocityJoint2))
+                        self.widget.AcelActualJ2.setText(str(AccelerationJoint2))
+                        self.widget.VelActualJ3.setText(str(VelocityJoint3))
+                        self.widget.AcelActualJ3.setText(str(AccelerationJoint3))
+                        self.widget.VelActualJ4.setText(str(VelocityJoint4))
+                        self.widget.AcelActualJ4.setText(str(AccelerationJoint4))
+                        self.widget.lcdNumber1.display(AlarmJoint1)
+                        self.widget.lcdNumber2.display(AlarmJoint2)
+                        self.widget.lcdNumber3.display(AlarmJoint3)
+                        self.widget.lcdNumber4.display(AlarmJoint4)
+                        if (AlarmJoint1 != 0):
+                            self.widget.lcdNumber1.setStyleSheet("background-color: rgb(239, 41, 41);")
+                        else:
+                            self.widget.lcdNumber1.setStyleSheet("background-color: rgb();")
+
+                        if (AlarmJoint2 != 0):
+                            self.widget.lcdNumber2.setStyleSheet("background-color: rgb(239, 41, 41);")
+                        else:
+                            self.widget.lcdNumber2.setStyleSheet("background-color: rgb();")
+
+                        if (AlarmJoint3 != 0):
+                            self.widget.lcdNumber3.setStyleSheet("background-color: rgb(239, 41, 41);")
+                        else:
+                            self.widget.lcdNumber3.setStyleSheet("background-color: rgb();")
+
+                        if (AlarmJoint4 != 0):
+                            self.widget.lcdNumber4.setStyleSheet("background-color: rgb(239, 41, 41);")
+                        else:
+                            self.widget.lcdNumber4.setStyleSheet("background-color: rgb();")
+                        
+                        
+                        scora_trajectory.goal_positions = [PositionJoint1, PositionJoint2, PositionJoint3, PositionJoint4, 0.0, 0.0]
+                        scora_trajectory.velocities = [VelocityJoint1, VelocityJoint2, VelocityJoint3, VelocityJoint4, 0.0, 0.0]
+                        trajectory_msg = JointTrajectory()
+                        trajectory_msg.joint_names = scora_trajectory.joints
+                        point = JointTrajectoryPoint()
+                        point.positions = scora_trajectory.goal_positions
+                        point.velocities = scora_trajectory.velocities
+                        point.time_from_start = Duration(sec=1)
+                        trajectory_msg.points.append(point)
+                        scora_trajectory.trajectory_publihser.publish(trajectory_msg)
+
+                        j1 = round(float(PositionJoint1),1)
+                        j2 = round(float(PositionJoint2),1)
+                        j3 = round(float(PositionJoint3),1)
+                        j4 = round(float(PositionJoint4),1)
+                        if j1 == self.value1 and j2 == self.value2 and j3 == self.value3 and j4 == self.value4:
+                                self.finish_pose = True
+                                print("Posicion: " + str(rows) +  " alcanzada")
+                    except OSError as e:
+                        print("No estas conectado")
+                    time.sleep(0.5)
+            except OSError as e:
+                print("No estas conectado")
+        self.timer1.start(200)
+
+    def stop_timer1(self):
+        self.timer1.stop()
+
+    def stop_timer2(self):
+        self.timer2.stop()
 
     def update_lbl(self):
         command = 40
@@ -878,5 +987,94 @@ class update(QThread):
             point.time_from_start = Duration(sec=1)
             trajectory_msg.points.append(point)
             scora_trajectory.trajectory_publihser.publish(trajectory_msg)
+        except OSError as e:
+            print("No estas conectado")
+
+    def _send_trajectory_wait(self):
+    
+        command = 40
+        hex_str5 = format(command, 'x').zfill(2)
+        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        decimal_num = int(value, 16)
+        try:
+            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            data = self.sock.recv(1024)
+            fmt = ">f"
+            VelocityJoint1 = round(struct.unpack(fmt, data[0:4])[0], 4)
+            PositionJoint1 = round(struct.unpack(fmt, data[4:8])[0], 4)
+            AccelerationJoint1 = round(struct.unpack(fmt, data[8:12])[0], 4)
+            AlarmJoint1 = struct.unpack('h', data[12:14])[0]
+            VelocityJoint2 = round(struct.unpack(fmt, data[14:18])[0], 4)
+            PositionJoint2 = round(struct.unpack(fmt, data[18:22])[0], 4)
+            AccelerationJoint2 = round(struct.unpack(fmt, data[22:26])[0], 4)
+            AlarmJoint2 = struct.unpack('h', data[26:28])[0]
+            VelocityJoint3 = round(struct.unpack(fmt, data[28:32])[0], 4)
+            PositionJoint3 = round(struct.unpack(fmt, data[32:36])[0], 4)
+            AccelerationJoint3 = round(struct.unpack(fmt, data[36:40])[0], 4)
+            AlarmJoint3 = struct.unpack('h', data[40:42])[0]
+            VelocityJoint4 = round(struct.unpack(fmt, data[42:46])[0], 4)
+            PositionJoint4 = round(struct.unpack(fmt, data[46:50])[0], 4)
+            AccelerationJoint4 = round(struct.unpack(fmt, data[50:54])[0], 4)
+            AlarmJoint4 = struct.unpack('h', data[54:56])[0]
+            self.widget.posencoder1.setText(str(PositionJoint1))
+            self.widget.posencoder2.setText(str(PositionJoint2))
+            self.widget.posencoder3.setText(str(PositionJoint3))
+            self.widget.posencoder4.setText(str(PositionJoint4))
+            self.widget.VelActualJ1.setText(str(VelocityJoint1))
+            self.widget.AcelActualJ1.setText(str(AccelerationJoint1))
+            self.widget.VelActualJ2.setText(str(VelocityJoint2))
+            self.widget.AcelActualJ2.setText(str(AccelerationJoint2))
+            self.widget.VelActualJ3.setText(str(VelocityJoint3))
+            self.widget.AcelActualJ3.setText(str(AccelerationJoint3))
+            self.widget.VelActualJ4.setText(str(VelocityJoint4))
+            self.widget.AcelActualJ4.setText(str(AccelerationJoint4))
+            self.widget.lcdNumber1.display(AlarmJoint1)
+            self.widget.lcdNumber2.display(AlarmJoint2)
+            self.widget.lcdNumber3.display(AlarmJoint3)
+            self.widget.lcdNumber4.display(AlarmJoint4)
+            if (AlarmJoint1 != 0):
+                self.widget.lcdNumber1.setStyleSheet("background-color: rgb(239, 41, 41);")
+            else:
+                self.widget.lcdNumber1.setStyleSheet("background-color: rgb();")
+
+            if (AlarmJoint2 != 0):
+                self.widget.lcdNumber2.setStyleSheet("background-color: rgb(239, 41, 41);")
+            else:
+                self.widget.lcdNumber2.setStyleSheet("background-color: rgb();")
+
+            if (AlarmJoint3 != 0):
+                self.widget.lcdNumber3.setStyleSheet("background-color: rgb(239, 41, 41);")
+            else:
+                self.widget.lcdNumber3.setStyleSheet("background-color: rgb();")
+
+            if (AlarmJoint4 != 0):
+                self.widget.lcdNumber4.setStyleSheet("background-color: rgb(239, 41, 41);")
+            else:
+                self.widget.lcdNumber4.setStyleSheet("background-color: rgb();")
+            
+            scora_trajectory = Trajectory_publisher()
+            scora_trajectory.goal_positions = [
+                PositionJoint1, PositionJoint2, PositionJoint3, PositionJoint4, 0.0, 0.0]
+            scora_trajectory.velocities = [
+                VelocityJoint1, VelocityJoint2, VelocityJoint3, VelocityJoint4, 0.0, 0.0]
+            trajectory_msg = JointTrajectory()
+            trajectory_msg.joint_names = scora_trajectory.joints
+            point = JointTrajectoryPoint()
+            point.positions = scora_trajectory.goal_positions
+            point.velocities = scora_trajectory.velocities
+            point.time_from_start = Duration(sec=1)
+            trajectory_msg.points.append(point)
+            scora_trajectory.trajectory_publihser.publish(trajectory_msg)
+
+            j1 = round(float(PositionJoint1),1)
+            j2 = round(float(PositionJoint2),1)
+            j3 = round(float(PositionJoint3),1)
+            j4 = round(float(PositionJoint4),1)
+            print("positionreal: "+ str(j1) + str(j2)+ str(j3)+ str(j4))
+            print("positiondeseada: "+ str(self.value1)+ str(self.value2)+ str(self.value3)+ str(self.value4))
+            if j1 == self.value1 and j2 == self.value2 and j3 == self.value3 and j4 == self.value4:
+                    self.finish_pose = True
+                    print("Posicion alcanzada")
+                    self.timer2.stop()
         except OSError as e:
             print("No estas conectado")
