@@ -205,11 +205,11 @@ class RqtScora(Plugin):
 
     def handle_sigint(self, signal, frame):
         command = 1
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.ShowText1.setText("Desconectado")
             self.updater = update(self.sock, self._widget)
             self.updater.terminate()
@@ -242,11 +242,11 @@ class RqtScora(Plugin):
 
     def _disconnectplc(self):
         command = 1
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             print("Desconectado")
             self._widget.ShowText1.setText("Desconectado")
             self._widget.ShowText1.setStyleSheet("color: rgb();")
@@ -258,11 +258,11 @@ class RqtScora(Plugin):
 
     def _on_servo(self):
         command = 6
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.statusj1.setText("Encendido")
             self._widget.statusj2.setText("Encendido")
             self._widget.statusj3.setText("Encendido")
@@ -281,11 +281,11 @@ class RqtScora(Plugin):
     def _on_servo_j1(self):
         if self.enableJ1:
             command = 41
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj1.setText("Encendido")
                 self.enableJ1 = False
                 self._widget.SwitchOnJ1.setIcon(self.iconOn)
@@ -293,11 +293,11 @@ class RqtScora(Plugin):
                 print("No estas conectado")
         else:
             command = 42
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj1.setText("Apagado")
                 self.enableJ1 = True
                 self._widget.SwitchOnJ1.setIcon(self.iconOff)
@@ -307,11 +307,11 @@ class RqtScora(Plugin):
     def _on_servo_j2(self):
         if self.enableJ2:
             command = 45
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj2.setText("Encendido")
                 self.enableJ2 = False
                 self._widget.SwitchOnJ2.setIcon(self.iconOn)
@@ -319,11 +319,11 @@ class RqtScora(Plugin):
                 print("No estas conectado")
         else:
             command = 46
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj2.setText("Apagado")
                 self.enableJ2 = True
                 self._widget.SwitchOnJ2.setIcon(self.iconOff)
@@ -333,11 +333,11 @@ class RqtScora(Plugin):
     def _on_servo_j3(self):
         if self.enableJ3:
             command = 49
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj3.setText("Encendido")
                 self.enableJ3 = False
                 self._widget.SwitchOnJ3.setIcon(self.iconOn)
@@ -345,11 +345,11 @@ class RqtScora(Plugin):
                 print("No estas conectado")
         else:
             command = 50
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj3.setText("Apagado")
                 self.enableJ3 = True
                 self._widget.SwitchOnJ3.setIcon(self.iconOff)
@@ -359,11 +359,11 @@ class RqtScora(Plugin):
     def _on_servo_j4(self):
         if self.enableJ4:
             command = 53
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj4.setText("Encendido")
                 self.enableJ4 = False
                 self._widget.SwitchOnJ4.setIcon(self.iconOn)
@@ -371,11 +371,11 @@ class RqtScora(Plugin):
                 print("No estas conectado")
         else:
             command = 54
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+"0000"+"0000"+"0000"+"0000"
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 self._widget.statusj4.setText("Apagado")
                 self.enableJ4 = True
                 self._widget.SwitchOnJ4.setIcon(self.iconOff)
@@ -384,11 +384,11 @@ class RqtScora(Plugin):
 
     def _off_servo(self):
         command = 7
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.statusj1.setText("Apagado")
             self._widget.statusj2.setText("Apagado")
             self._widget.statusj3.setText("Apagado")
@@ -406,11 +406,11 @@ class RqtScora(Plugin):
 
     def _home_arm(self):
         command = 10
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
 
@@ -423,7 +423,13 @@ class RqtScora(Plugin):
         j2 = float(self._widget.posencoder2.toPlainText())
         j3 = float(self._widget.posencoder3.toPlainText())
         j4 = float(self._widget.posencoder4.toPlainText())
-        j5 = self.j5
+        j5text = self._widget.statusj5.text()
+        
+        if j5text == "Cerrado":
+            j5 = 30.0
+        else:
+            j5 = 0.0
+
         itemj1 = QTableWidgetItem('{:.2f}'.format(j1))
         itemj2 = QTableWidgetItem('{:.2f}'.format(j2))
         itemj3 = QTableWidgetItem('{:.2f}'.format(j3))
@@ -515,10 +521,10 @@ class RqtScora(Plugin):
 
     def _act_param(self):
         command = 13
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
-        self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+        self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         data = self.sock.recv(1024)
         fmt = ">f"
         VelocityJoint1 = round(struct.unpack(fmt, data[4:8])[0], 4)
@@ -591,21 +597,21 @@ class RqtScora(Plugin):
     def _on_grasp_btn(self):
         self.j5 = 30.0
         command = 12
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
-        self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
         self._widget.statusj5.setText("Cerrado")
+        self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
 
     def _on_relase_btn(self):
         self.j5 = 0.0
         self._on_parameter_changed()
         command = 11
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
-        self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
         self._widget.statusj5.setText("Abierto")
+        self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
 
     def _on_parameter_changed(self):
 
@@ -613,26 +619,28 @@ class RqtScora(Plugin):
         j2 = self._widget.j2_slider.value() / 100
         j3 = self._widget.j3_slider.value() / 100
         j4 = self._widget.j4_slider.value() / 100
-        ji5 = self.j5
-        self._send_trajectory(j1, j2, j3, j4, ji5, ji5)
+        j5 = self.j5
+        self._send_trajectory(j1, j2, j3, j4, j5)
 
-    def _send_trajectory(self, j1, j2, j3, j4, j5, j6):
+    def _send_trajectory(self, j1, j2, j3, j4, j5):
         value1 = int(j1)
         value2 = int(j2)
         value3 = int(j3)
         value4 = int(j4)
+        value5 = int(j5)
         hex_str1 = format(value1, 'x').zfill(4)
         hex_str2 = format(value2, 'x').zfill(4)
         hex_str3 = format(value3, 'x').zfill(4)
         hex_str4 = format(value4, 'x').zfill(4)
+        hex_str5 = format(value5, 'x').zfill(4)
         command = 8
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+hex_str4+hex_str3+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+hex_str5+hex_str4+hex_str3+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             scora_trajectory = Trajectory_publisher()
-            scora_trajectory.goal_positions = [j1, j2, j3, j4, j5, j6]
+            scora_trajectory.goal_positions = [j1, j2, j3, j4, j5, j5]
             trajectory_msg = JointTrajectory()
             trajectory_msg.joint_names = scora_trajectory.joints
             point = JointTrajectoryPoint()
@@ -648,21 +656,21 @@ class RqtScora(Plugin):
         hex_str1 = format(VelGeneral, 'x').zfill(4)
         hex_str2 = format(AcelGeneral, 'x').zfill(4)
         command = 13
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
             
     def _clear_alarm_general(self):
         command = 5
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.lcdNumber1.display(0)
             self._widget.lcdNumber2.display(0)
             self._widget.lcdNumber3.display(0)
@@ -676,21 +684,21 @@ class RqtScora(Plugin):
         hex_str1 = format(VelJ1, 'x').zfill(4)
         hex_str2 = format(AcelJ1, 'x').zfill(4)
         command = 14
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
             
     def _clear_alarm_j1(self):
         command = 18
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.lcdNumber1.display(0)
         except OSError as e:
             print("No estas conectado")
@@ -701,21 +709,21 @@ class RqtScora(Plugin):
         hex_str1 = format(VelJ2, 'x').zfill(4)
         hex_str2 = format(AcelJ2, 'x').zfill(4)
         command = 15
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
             
     def _clear_alarm_j2(self):
         command = 19
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.lcdNumber2.display(0)
         except OSError as e:
             print("No estas conectado")
@@ -726,21 +734,21 @@ class RqtScora(Plugin):
         hex_str1 = format(VelJ3, 'x').zfill(4)
         hex_str2 = format(AcelJ3, 'x').zfill(4)
         command = 16
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
             
     def _clear_alarm_j3(self):
         command = 20
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.lcdNumber3.display(0)
         except OSError as e:
             print("No estas conectado")
@@ -751,21 +759,21 @@ class RqtScora(Plugin):
         hex_str1 = format(VelJ4, 'x').zfill(4)
         hex_str2 = format(AcelJ4, 'x').zfill(4)
         command = 17
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+hex_str2+hex_str1
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+hex_str2+hex_str1
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
         except OSError as e:
             print("No estas conectado")
             
     def _clear_alarm_j4(self):
         command = 21
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             self._widget.lcdNumber4.display(0)
         except OSError as e:
             print("No estas conectado")
@@ -804,29 +812,27 @@ class update(QThread):
             self.value2 = int(rows_data[i+1])
             self.value3 = int(rows_data[i+2])
             self.value4 = int(rows_data[i+3])
+            self.value5 = int(rows_data[i+4])
             i=i+5
             hex_str1 = format(self.value1, 'x').zfill(4)
             hex_str2 = format(self.value2, 'x').zfill(4)
             hex_str3 = format(self.value3, 'x').zfill(4)
             hex_str4 = format(self.value4, 'x').zfill(4)
+            hex_str5 = format(self.value5, 'x').zfill(4)
             command = 8
-            hex_str5 = format(command, 'x').zfill(2)
-            value = hex_str5+hex_str4+hex_str3+hex_str2+hex_str1
+            hex_str6 = format(command, 'x').zfill(2)
+            value = hex_str6+hex_str5+hex_str4+hex_str3+hex_str2+hex_str1
             decimal_num = int(value, 16)
             try:
-                self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                 print("Enviando a posicion " + str(rows) )
-                # Crear un QTimer para actualizar el label en intervalos regulares
-                #self.timer2 = QTimer()
-                #self.timer2.timeout.connect(self._send_trajectory_wait)
-                #self.timer2.start(200)  # Actualizar cada 1000 ms (1 segundo)
                 while self.finish_pose == False:
                     command = 40
-                    hex_str5 = format(command, 'x').zfill(2)
-                    value = hex_str5+"0000"+"0000"+"0000"+"0000"
+                    hex_str6 = format(command, 'x').zfill(2)
+                    value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
                     decimal_num = int(value, 16)
                     try:
-                        self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+                        self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
                         data = self.sock.recv(1024)
                         fmt = ">f"
                         VelocityJoint1 = round(struct.unpack(fmt, data[0:4])[0], 4)
@@ -915,11 +921,11 @@ class update(QThread):
 
     def update_lbl(self):
         command = 40
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
+        hex_str6 = format(command, 'x').zfill(2)
+        value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
         try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
+            self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
             data = self.sock.recv(1024)
             fmt = ">f"
             VelocityJoint1 = round(struct.unpack(fmt, data[0:4])[0], 4)
@@ -987,94 +993,5 @@ class update(QThread):
             point.time_from_start = Duration(sec=1)
             trajectory_msg.points.append(point)
             scora_trajectory.trajectory_publihser.publish(trajectory_msg)
-        except OSError as e:
-            print("No estas conectado")
-
-    def _send_trajectory_wait(self):
-    
-        command = 40
-        hex_str5 = format(command, 'x').zfill(2)
-        value = hex_str5+"0000"+"0000"+"0000"+"0000"
-        decimal_num = int(value, 16)
-        try:
-            self.sock.sendall(decimal_num.to_bytes(9, byteorder='little'))
-            data = self.sock.recv(1024)
-            fmt = ">f"
-            VelocityJoint1 = round(struct.unpack(fmt, data[0:4])[0], 4)
-            PositionJoint1 = round(struct.unpack(fmt, data[4:8])[0], 4)
-            AccelerationJoint1 = round(struct.unpack(fmt, data[8:12])[0], 4)
-            AlarmJoint1 = struct.unpack('h', data[12:14])[0]
-            VelocityJoint2 = round(struct.unpack(fmt, data[14:18])[0], 4)
-            PositionJoint2 = round(struct.unpack(fmt, data[18:22])[0], 4)
-            AccelerationJoint2 = round(struct.unpack(fmt, data[22:26])[0], 4)
-            AlarmJoint2 = struct.unpack('h', data[26:28])[0]
-            VelocityJoint3 = round(struct.unpack(fmt, data[28:32])[0], 4)
-            PositionJoint3 = round(struct.unpack(fmt, data[32:36])[0], 4)
-            AccelerationJoint3 = round(struct.unpack(fmt, data[36:40])[0], 4)
-            AlarmJoint3 = struct.unpack('h', data[40:42])[0]
-            VelocityJoint4 = round(struct.unpack(fmt, data[42:46])[0], 4)
-            PositionJoint4 = round(struct.unpack(fmt, data[46:50])[0], 4)
-            AccelerationJoint4 = round(struct.unpack(fmt, data[50:54])[0], 4)
-            AlarmJoint4 = struct.unpack('h', data[54:56])[0]
-            self.widget.posencoder1.setText(str(PositionJoint1))
-            self.widget.posencoder2.setText(str(PositionJoint2))
-            self.widget.posencoder3.setText(str(PositionJoint3))
-            self.widget.posencoder4.setText(str(PositionJoint4))
-            self.widget.VelActualJ1.setText(str(VelocityJoint1))
-            self.widget.AcelActualJ1.setText(str(AccelerationJoint1))
-            self.widget.VelActualJ2.setText(str(VelocityJoint2))
-            self.widget.AcelActualJ2.setText(str(AccelerationJoint2))
-            self.widget.VelActualJ3.setText(str(VelocityJoint3))
-            self.widget.AcelActualJ3.setText(str(AccelerationJoint3))
-            self.widget.VelActualJ4.setText(str(VelocityJoint4))
-            self.widget.AcelActualJ4.setText(str(AccelerationJoint4))
-            self.widget.lcdNumber1.display(AlarmJoint1)
-            self.widget.lcdNumber2.display(AlarmJoint2)
-            self.widget.lcdNumber3.display(AlarmJoint3)
-            self.widget.lcdNumber4.display(AlarmJoint4)
-            if (AlarmJoint1 != 0):
-                self.widget.lcdNumber1.setStyleSheet("background-color: rgb(239, 41, 41);")
-            else:
-                self.widget.lcdNumber1.setStyleSheet("background-color: rgb();")
-
-            if (AlarmJoint2 != 0):
-                self.widget.lcdNumber2.setStyleSheet("background-color: rgb(239, 41, 41);")
-            else:
-                self.widget.lcdNumber2.setStyleSheet("background-color: rgb();")
-
-            if (AlarmJoint3 != 0):
-                self.widget.lcdNumber3.setStyleSheet("background-color: rgb(239, 41, 41);")
-            else:
-                self.widget.lcdNumber3.setStyleSheet("background-color: rgb();")
-
-            if (AlarmJoint4 != 0):
-                self.widget.lcdNumber4.setStyleSheet("background-color: rgb(239, 41, 41);")
-            else:
-                self.widget.lcdNumber4.setStyleSheet("background-color: rgb();")
-            
-            scora_trajectory = Trajectory_publisher()
-            scora_trajectory.goal_positions = [
-                PositionJoint1, PositionJoint2, PositionJoint3, PositionJoint4, 0.0, 0.0]
-            scora_trajectory.velocities = [
-                VelocityJoint1, VelocityJoint2, VelocityJoint3, VelocityJoint4, 0.0, 0.0]
-            trajectory_msg = JointTrajectory()
-            trajectory_msg.joint_names = scora_trajectory.joints
-            point = JointTrajectoryPoint()
-            point.positions = scora_trajectory.goal_positions
-            point.velocities = scora_trajectory.velocities
-            point.time_from_start = Duration(sec=1)
-            trajectory_msg.points.append(point)
-            scora_trajectory.trajectory_publihser.publish(trajectory_msg)
-
-            j1 = round(float(PositionJoint1),1)
-            j2 = round(float(PositionJoint2),1)
-            j3 = round(float(PositionJoint3),1)
-            j4 = round(float(PositionJoint4),1)
-            print("positionreal: "+ str(j1) + str(j2)+ str(j3)+ str(j4))
-            print("positiondeseada: "+ str(self.value1)+ str(self.value2)+ str(self.value3)+ str(self.value4))
-            if j1 == self.value1 and j2 == self.value2 and j3 == self.value3 and j4 == self.value4:
-                    self.finish_pose = True
-                    print("Posicion alcanzada")
-                    self.timer2.stop()
         except OSError as e:
             print("No estas conectado")
