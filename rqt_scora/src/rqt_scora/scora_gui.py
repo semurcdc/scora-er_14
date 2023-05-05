@@ -45,6 +45,12 @@ class RqtScora(Plugin):
         self._widget.j1_slider.valueChanged.connect(self._on_j1_slider_changed)
         self._widget.j1_slider.setMaximum(7500)
         self._widget.j1_slider.setMinimum(0)
+        # Push button increase joint 1
+        self._widget.increase_j1_push_button.pressed.connect(
+            self._on_strong_increase_j1_pressed)
+        # Push button decrease joint 1
+        self._widget.decrease_j1_push_button.pressed.connect(
+            self._on_strong_decrease_j1_pressed)
 
         # Slider joint 2
         self._widget.j2_slider.valueChanged.connect(self._on_j2_slider_changed)
@@ -182,9 +188,6 @@ class RqtScora(Plugin):
         self.enableJ3 = True
         self.enableJ4 = True
         
-
-
-
         if os.path.exists(self.username+"/trajectories_scora"):
             for i in os.listdir(self.username+"/trajectories_scora"):
                 self.lista_arq += (i+'\n')
@@ -232,6 +235,7 @@ class RqtScora(Plugin):
             self.state = True
             self.updater = update(self.sock, self._widget)
             self.updater.start_timer()
+            self._widget.j1_slider.setValue(float(self._widget.posencoder1.toPlainText()))
 
         except OSError as e:
             print("Cable de red desconectado o PLC apagado")
@@ -555,6 +559,12 @@ class RqtScora(Plugin):
             '%0.2f' % (self._widget.j1_slider.value() / 100))
         self._on_parameter_changed()
 
+    def _on_strong_increase_j1_pressed(self):
+        self._widget.j1_slider.setValue(self._widget.j1_slider.value() + 100)
+
+    def _on_strong_decrease_j1_pressed(self):
+        self._widget.j1_slider.setValue(self._widget.j1_slider.value() - 100)
+
     def _on_j2_slider_changed(self):
         self._widget.current_j2_label.setText(
             '%0.2f' % (self._widget.j2_slider.value() / 100))
@@ -562,11 +572,11 @@ class RqtScora(Plugin):
 
     def _on_strong_increase_j2_pressed(self):
         self._widget.j2_slider.setValue(
-            self._widget.j2_slider.value() + self._widget.j2_slider.pageStep())
+            self._widget.j2_slider.value() + 100)
 
     def _on_strong_decrease_j2_pressed(self):
         self._widget.j2_slider.setValue(
-            self._widget.j2_slider.value() - self._widget.j2_slider.pageStep())
+            self._widget.j2_slider.value() - 100)
 
     def _on_j3_slider_changed(self):
         self._widget.current_j3_label.setText(
@@ -575,11 +585,11 @@ class RqtScora(Plugin):
 
     def _on_strong_increase_j3_pressed(self):
         self._widget.j3_slider.setValue(
-            self._widget.j3_slider.value() + self._widget.j3_slider.pageStep())
+            self._widget.j3_slider.value() + 100)
 
     def _on_strong_decrease_j3_pressed(self):
         self._widget.j3_slider.setValue(
-            self._widget.j3_slider.value() - self._widget.j3_slider.pageStep())
+            self._widget.j3_slider.value() - 100)
 
     def _on_j4_slider_changed(self):
         self._widget.current_j4_label.setText(
@@ -588,11 +598,11 @@ class RqtScora(Plugin):
 
     def _on_strong_increase_j4_pressed(self):
         self._widget.j4_slider.setValue(
-            self._widget.j4_slider.value() + self._widget.j4_slider.pageStep())
+            self._widget.j4_slider.value() + 100)
 
     def _on_strong_decrease_j4_pressed(self):
         self._widget.j4_slider.setValue(
-            self._widget.j4_slider.value() - self._widget.j4_slider.pageStep())
+            self._widget.j4_slider.value() - 100)
 
     def _on_grasp_btn(self):
         self.j5 = 30.0
