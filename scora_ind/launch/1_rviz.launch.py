@@ -21,8 +21,8 @@ def generate_launch_description():
             parameters=[{'robot_description': robot_desc}],
             arguments=[urdf]),
         Node(
-            package='joint_state_publisher_gui_perso',
-            executable='joint_state_publisher_gui_perso',
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
             name='JSP_gui',
             output='screen',
             parameters=[{'robot_description': robot_desc}],
