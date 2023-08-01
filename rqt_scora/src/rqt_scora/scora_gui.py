@@ -4,7 +4,7 @@ from ament_index_python import get_resource
 from python_qt_binding import loadUi
 from python_qt_binding.QtGui import QIcon, QPixmap
 from python_qt_binding.QtCore import QTimer, QThread, QCoreApplication, pyqtSignal, QSize, QResource
-from python_qt_binding.QtWidgets import QWidget, QLCDNumber, QTableWidget, QTableWidgetItem, QApplication
+from python_qt_binding.QtWidgets import QWidget, QLCDNumber, QTableWidget, QTableWidgetItem, QApplication, QMessageBox
 from rclpy.qos import QoSProfile
 from rqt_gui_py.plugin import Plugin
 from builtin_interfaces.msg import Duration
@@ -105,7 +105,7 @@ class RqtScora(Plugin):
 
         self._widget.OffButton.pressed.connect(self._off_servo)
 
-        self._widget.homeButton.pressed.connect(self._home_arm)
+        self._widget.homeButton.pressed.connect(self.mostrar_ventana_emergente)
 
         self._widget.ChgValGeneral.pressed.connect(self._changed_vel_acel_general)
 
@@ -236,6 +236,7 @@ class RqtScora(Plugin):
             self.updater = update(self.sock, self._widget)
             self.updater.start_timer()
             self._widget.j1_slider.setValue(float(self._widget.posencoder1.toPlainText()))
+            
 
         except OSError as e:
             print("Cable de red desconectado o PLC apagado")
@@ -243,6 +244,25 @@ class RqtScora(Plugin):
         except self.sock.error as e:
             print(f'Error: {e}')
             self.sock.close()
+
+    def mostrar_ventana_emergente(self):
+        message_box = QMessageBox()
+        message_box.setIcon(QMessageBox.Information)
+        message_box.setWindowTitle("Advertencia")
+        message_box.setText("<html><body><h3 style='color: red;'>¡Atención!</h3><br/>El robot se dirige a su posición inicial.<br/>Por favor, despeje la zona de trabajo por su seguridad.<br/><br/><br/>Presiona el boton para comenzar</body></html>")
+        message_box.setStandardButtons(QMessageBox.Ok)
+        button_ok = message_box.button(QMessageBox.Ok)
+        button_ok.clicked.connect(self._home_arm)
+        message_box.exec_()
+    
+    def ventana_home(self):
+        message_box1 = QMessageBox()
+        message_box1.setIcon(QMessageBox.Information)
+        message_box1.setWindowTitle("Rutina de inicio")
+        message_box1.setText("<html><body><br/>El robot se dirige a su posición inicial.<br/>Por favor, espere.</body></html>")
+        message_box1.setStandardButtons(QMessageBox.NoButton)
+        QTimer.singleShot(3000, message_box1.close)
+        message_box1.exec_()
 
     def _disconnectplc(self):
         command = 1
@@ -279,6 +299,7 @@ class RqtScora(Plugin):
             self.enableJ2 = True
             self.enableJ3 = True
             self.enableJ4 = True
+            self.mostrar_ventana_emergente()
         except OSError as e:
             print("No estas conectado")
 
@@ -415,10 +436,12 @@ class RqtScora(Plugin):
         decimal_num = int(value, 16)
         try:
             self.sock.sendall(decimal_num.to_bytes(11, byteorder='little'))
+
         except OSError as e:
             print("No estas conectado")
 
-        self._widget.ShowText.setText("Posicion inicial")
+        self._widget.ShowText.setText("Llevando a posicion inicial")
+        self.ventana_home()
 
     def _add_row(self):
         rowcount = self._widget.tablapos.rowCount()
