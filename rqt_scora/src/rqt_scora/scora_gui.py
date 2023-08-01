@@ -34,8 +34,6 @@ class RqtScora(Plugin):
             self._widget.setWindowTitle(
                 self._widget.windowTitle() + (' (%d)' % context.serial_number()))
         context.add_widget(self._widget)
-        # Button clear
-        self._widget.homeButton.pressed.connect(self._on_home_btn)
         # Button Grasp
         self._widget.GraspButton.pressed.connect(self._on_grasp_btn)
         # Button Relase
@@ -430,7 +428,11 @@ class RqtScora(Plugin):
             print("No estas conectado")
 
     def _home_arm(self):
-        command = 10
+        self._widget.j1_slider.setValue(0)
+        self._widget.j2_slider.setValue(0)
+        self._widget.j3_slider.setValue(0)
+        self._widget.j4_slider.setValue(0)
+        command = 56
         hex_str6 = format(command, 'x').zfill(2)
         value = hex_str6+"0000"+"0000"+"0000"+"0000"+"0000"
         decimal_num = int(value, 16)
@@ -570,12 +572,6 @@ class RqtScora(Plugin):
         self._widget.AcelActualJ2.setText(str(AcelerationJoint2))
         self._widget.AcelActualJ3.setText(str(AcelerationJoint3))
         self._widget.AcelActualJ4.setText(str(AcelerationJoint4))
-
-    def _on_home_btn(self):
-        self._widget.j1_slider.setValue(0)
-        self._widget.j2_slider.setValue(0)
-        self._widget.j3_slider.setValue(0)
-        self._widget.j4_slider.setValue(0)
 
     def _on_j1_slider_changed(self):
         self._widget.current_j1_label.setText(
